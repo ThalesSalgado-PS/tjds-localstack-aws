@@ -1,0 +1,24 @@
+{
+  "tb_person": [
+    {
+      "PutRequest": {
+        "Item": {
+          "document": { "S": "11122233344" },
+          "name": { "S": "Aaa Bbb" },
+          "occupation": { "S": "CLT" },
+          "salary": { "N": "2200.50" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "document": { "S": "55566677788" },
+          "name": { "S": "Aaa Ccc" },
+          "occupation": { "S": "Estudante" },
+          "salary": { "N": "550" }
+        }
+      }
+    }
+  ]
+}
