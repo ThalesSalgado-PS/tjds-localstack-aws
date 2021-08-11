@@ -5,6 +5,7 @@ Projeto java simples que interage com alguns recursos da AWS provisionados local
 
 # SetUp
 Para iniciar, deve-se ter instalado o AWS Cli, o Docker e o Docker-Compose para executar alguns comandos.
+
 Em um terminal execute o comando 'aws configure --profile localstack' e em seguida entre com os valores a seguir:
  - AWS Access Key ID: 1234
  - AWS Secret Access Key: 1234
@@ -18,9 +19,12 @@ Depois de configurar o perfil aws, rode o docker-compose presente na pasta '/ci'
 docker-compose up -d
 ```
 
+OBS: no docker-compose tem um banco postgres subindo sem utilização.
+
 # SQS
 Com o docker-compose iniciado execute o script 'create_sqs_queues.sh' dentro da pasta '/ci', com isso será criada a fila sqs 'person-queue'.
-A seguir tem uma breve explicação das configurações feitas no back-end e alguns comandos que podem ser úteis.
+
+A seguir tem uma breve explicação das configurações feitas no back-end para consumir/publicar no sqs e alguns comandos que podem ser úteis.
 
 ## Configs no back-end do SQS
 No pacote 'config', tem a classe 'AWSConfig' na qual tem um bean de nome 'amazonSQS' que é o bean configurado para o client da AWS SQS.
