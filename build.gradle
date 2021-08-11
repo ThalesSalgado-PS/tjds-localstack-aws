@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.tjds'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Postgresql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
+
+	// AWS SQS
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk-sqs', version: '1.12.36'
+	// Amazon Sqs Java Messaging Lib (JMS)
+	implementation group: 'com.amazonaws', name: 'amazon-sqs-java-messaging-lib', version: '1.0.8'
+
+	// JMS
+	implementation group: 'org.springframework', name: 'spring-jms', version: '5.3.9'
+
+	// Jackson - ObjectMapper
+	implementation('com.fasterxml.jackson.core:jackson-databind')
+
+}
+
+test {
+	useJUnitPlatform()
+}
